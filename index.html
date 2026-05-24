@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STT MRAM 3D 動畫</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="ui">
+      <h1>STT MRAM 3D 動畫</h1>
+      <div class="controls main-actions">
+        <button id="btnWrite0">寫入 0</button>
+        <button id="btnWrite1">寫入 1</button>
+        <button id="btnRead">讀取</button>
+      </div>
+      <div class="step-controls">
+        <button id="btnNext" title="下一步">▶</button>
+      </div>
+      <div class="status-card">
+        <div class="status-item main-status">
+          <strong>步驟說明</strong>
+          <p id="stepLabel">請選擇寫入/讀取。</p>
+        </div>
+        <div class="status-grid">
+          <div class="status-item">
+            <span class="label">儲存狀態</span>
+            <span id="cellState" class="value highlight-text"
+              >電子自旋方向平行(P)</span
+            >
+          </div>
+          <div class="status-item">
+            <span class="label">讀取輸出</span>
+            <span id="readOutput" class="value badge-value">-</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend-card">
+        <h2>圖例符號說明</h2>
+
+        <div class="legend-section">
+          <h3>MTJ 磁性隧道結</h3>
+          <ul class="legend-list">
+            <li>
+              <span class="color-dot" style="background: #ffe600"></span
+              ><span class="part-name">自由層</span>
+            </li>
+            <li>
+              <span class="color-dot" style="background: #ff7b00"></span
+              ><span class="part-name">絕緣層 (MgO)</span>
+            </li>
+            <li>
+              <span class="color-dot" style="background: #38ef7d"></span
+              ><span class="part-name">固定層</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="legend-section">
+          <h3>電路與傳輸線</h3>
+          <ul class="legend-list">
+            <li>
+              <span class="color-dot" style="background: #e63946"></span
+              ><span class="part-name">Bit Line (位元線)</span>
+            </li>
+            <li>
+              <span class="color-dot" style="background: #b536db"></span
+              ><span class="part-name">Source Line (源極線)</span>
+            </li>
+            <li>
+              <span class="color-dot" style="background: #aaaaaa"></span
+              ><span class="part-name">Word Line (字元線)</span>
+            </li>
+            <li>
+              <span
+                class="color-dot"
+                style="background: #333333; border: 1px solid #555"
+              ></span
+              ><span class="part-name">CMOS 電晶體基底</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="legend-section">
+          <h3>微觀粒子</h3>
+          <ul class="legend-list">
+            <li>
+              <span class="color-dot" style="background: #22aed1"></span
+              ><span class="part-name">電子雲體 / 箭頭代表自旋</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="canvas-container"></div>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

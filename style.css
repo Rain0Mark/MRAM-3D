@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #0c1120;
+  color: #f4f7ff;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+}
+
+#ui {
+  width: 340px;
+  min-width: 280px;
+  height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 17, 32, 0.98),
+    rgba(17, 24, 50, 0.98)
+  );
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  resize: horizontal;
+}
+
+#canvas-container {
+  flex: 1;
+  min-width: 0;
+  background: #101623;
+  position: relative;
+}
+
+#canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#ui h1 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+/* --- 基礎按鈕樣式 --- */
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #2b3857;
+  color: #f5f8ff;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: #3c4d72;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input[type="range"] {
+  width: 160px;
+}
+
+/* --- 🚀 主要控制按鈕 (寫入/讀取) --- */
+.main-actions {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.main-actions button {
+  flex: 1;
+  padding: 12px 10px;
+  font-weight: 600;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.main-actions button:hover {
+  background: #334155;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- 🚀 步驟導覽按鈕 (箭頭/重置) --- */
+.step-controls {
+  margin-bottom: 18px;
+  display: flex;
+  gap: 6px;
+}
+
+.step-controls button {
+  font-size: 14px;
+  padding: 10px 18px;
+  flex: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btnReset {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* --- 🚀 狀態區塊卡片 --- */
+.status-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.status-item strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8a99ad;
+  margin-bottom: 6px;
+}
+
+.status-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+.status-grid .status-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-grid .label {
+  font-size: 12px;
+  color: #8a99ad;
+  margin-bottom: 4px;
+}
+
+.status-grid .value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.highlight-text {
+  color: #38ef7d !important;
+}
+
+.badge-value {
+  background: #1e293b;
+  padding: 2px 8px;
+  border-radius: 6px;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ff4d4d !important;
+}
+
+/* --- 🚀 圖例說明卡片 --- */
+.legend-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.legend-card h2 {
+  font-size: 14px;
+  margin: 0 0 16px 0;
+  color: #cbd5e1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.legend-section {
+  margin-bottom: 16px;
+}
+
+.legend-section:last-child {
+  margin-bottom: 0;
+}
+
+.legend-section h3 {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.legend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.legend-list li:last-child {
+  margin-bottom: 0;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.part-name {
+  line-height: 1.2;
+}
